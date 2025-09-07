@@ -71,6 +71,18 @@ console.log(`---------------------------------`);
      to sum all integers from `start` to `end` (inclusive).
    - Log the final sum.
 */
+function sumRange(start, end) {
+  let sum = 0;
+  let i = start;
+  while (i <= end) {
+    sum = sum + i;
+    i = i + 1;
+  }
+  console.log(`The sum from ${start} to ${end} is: ${sum}`);
+}
+
+sumRange(1, 5);
+sumRange(3, 7);
 
 /*
 5. Reverse an Array
@@ -95,6 +107,19 @@ reverseArray(['john', '45,', true, false, NaN]);
      an array of numbers and creates a new array without any negative values.
    - Log the new array.
 */
+function filterNegative(numbers) {
+  const positiveNumbers = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] >= 0) {
+      positiveNumbers.push(numbers[i]);
+    }
+  }
+  console.log('Array without negative numbers:', positiveNumbers);
+
+}
+filterNegative([1, -3, 5, -9, 10]);
+filterNegative([-1, -2, -5, -9, -10]);
+
 
 /*
 7. Double the Values (For-of Loop)
@@ -102,12 +127,29 @@ reverseArray(['john', '45,', true, false, NaN]);
      to multiply each number by 2, storing results in a new array.
    - Log the new array.
 */
+function doubleValues(numbers) {
+  const doubled = [];
+  for (let num of numbers) {
+    doubled.push(num * 2);
+  }
+  console.log('Doubled values:', doubled);
+}
+doubleValues([1, 2, 3, 4, 5]);
+doubleValues([-1, -2, -3, -4, -5]);
+doubleValues([0, 0, 0, 0, 0]);
 
 /*
 8. Print Each Character of a String (For-of)
    - Define a function `printCharacters(str)` that uses a for-of loop
      to log each character in the string on a separate line.
 */
+function printCharacters(str) {
+  for (let char of str) {
+    console.log(char);
+  }
+}
+printCharacters('Hello');
+printCharacters('Gozde');
 
 /*
 9. Sum All Values in an Object
@@ -117,11 +159,12 @@ reverseArray(['john', '45,', true, false, NaN]);
    - Example: {a: 10, b: 20, c: 5} -> 35
 */
 
+
 function sumObjectValues(obj) {
   let sum = 0;
   for (const k in obj) {
     if (typeof obj[k] === 'number') {
-    sum = sum + obj[k];
+      sum = sum + obj[k];
     } else {
       console.log('Current value is not a number, skipping it', obj[k]);
     }
@@ -148,6 +191,14 @@ sumObjectValues(exampleObejct);
       to log each key of the object.
     - Example: { name: "Alice", age: 25 } -> logs "name", then "age"
 */
+function printObjectKeys(obj) {
+  for (let key in obj) {
+    console.log(key);
+  }
+}
+
+printObjectKeys({ name: 'Alice', age: 25 });
+printObjectKeys({ a: 1, b: 2, c: 3, d: 4 });
 
 /*
 11. Sum Array Using do-while Loop
@@ -155,6 +206,18 @@ sumObjectValues(exampleObejct);
       to sum all numbers in the array.
     - Log the total.
 */
+function sumWithDoWhile(numbers) {
+  let sum = 0;
+  let i = 0;
+  do {
+    sum += numbers[i];
+    i++;
+  }
+  while (i < numbers.length);
+  console.log('Sum using do-while loop is:', sum);
+}
+sumWithDoWhile([1, 2, 3, 4, 5]);
+sumWithDoWhile([10, 20, 30]);
 
 /*
 12. Remove Duplicates from an Array
@@ -163,6 +226,18 @@ sumObjectValues(exampleObejct);
     - Hint: you could check if the item is already in the new array before pushing.
     - Log the new array without duplicates.
 */
+function removeDuplicates(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+  console.log('Array without duplicates:', result);
+}
+
+removeDuplicates([1, 2, 2, 3, 4, 4, 5]);
+removeDuplicates(['apple', 'banana', 'apple', 'orange', 'banana']);
 
 /*
 13. Calculate Factorial (For Loop)
@@ -171,6 +246,17 @@ sumObjectValues(exampleObejct);
     - Log the result. 
     - Example: factorial(5) -> 120
 */
+function factorial(n) {
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result = result * i;
+  }
+  console.log(`Factorial of ${n} is: ${result}`);
+}
+
+factorial(5);
+factorial(0);
+factorial(3);
 
 /*
 14. String -> Array -> String
@@ -179,6 +265,16 @@ sumObjectValues(exampleObejct);
       a string. Use loops or built-in methods as you like.
     - Log the reversed sentence.
 */
+function reverseWords(sentence) {
+  const words = sentence.split(' ');
+  const reversed = words.reverse();
+  const reversedSentence = reversed.join(' ');
+  console.log('Reversed sentence:', reversedSentence);
+}
+
+reverseWords('Hello world this is JavaScript');
+reverseWords('Gozde loves coding');
+
 
 /*
 15. Filter Words Longer Than X
@@ -186,6 +282,7 @@ sumObjectValues(exampleObejct);
       to collect only the words that have a length >= minLength.
     - Log the resulting array.
 */
+
 
 /*
 16. Log Array Elements with Their Indices
