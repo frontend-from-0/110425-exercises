@@ -282,6 +282,18 @@ reverseWords('Gozde loves coding');
       to collect only the words that have a length >= minLength.
     - Log the resulting array.
 */
+function filterLongWords(words, minLength) {
+  const result = [];
+  for (let word of words) {
+    if (word.length >= minLength) {
+      result.push(word);
+    }
+  }
+  console.log(`Words longer than or equal to ${minLength}:`, result);
+}
+
+filterLongWords(['apple', 'banana', 'kiwi', 'cherry', 'blueberry'], 5);
+filterLongWords(['a', 'ab', 'abc', 'abcd'], 3);
 
 
 /*
@@ -289,6 +301,14 @@ reverseWords('Gozde loves coding');
     - Define a function `logElementsWithIndex(arr)` that loops through the array
       and logs "Index: i, Value: arr[i]" for each element.
 */
+function logElementsWithIndex(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(`Index: ${i}, Value: ${arr[i]}`);
+  }
+}
+
+logElementsWithIndex(['a', 'b', 'c']);
+logElementsWithIndex([10, 20, 30, 40]);
 
 /*
 17. Find the Smallest Number in an Array
@@ -296,6 +316,17 @@ reverseWords('Gozde loves coding');
       to find and return the smallest number.
     - Log the smallest number.
 */
+function findMin(numbers) {
+  let minNumber = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] < minNumber) minNumber = numbers[i];
+  }
+  console.log('Minimum number is:', minNumber);
+}
+
+findMin([3, 1, 4, 1, 5, 9]);
+findMin([-10, -20, -5, 0, 5]);
+
 
 /*
 18. Count Occurrences of a Word in an Array
@@ -303,6 +334,18 @@ reverseWords('Gozde loves coding');
       to count how many times `word` appears.
     - Log the count.
 */
+function countOccurrences(arr, word) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      count++;
+    }
+  }
+  console.log(`The word "${word}" occurs ${count} times.`);
+}
+
+countOccurrences(["a", "b", "a", "c", "a"], 'a');
+countOccurrences(['cat', 'dog', 'cat', 'mouse'], 'cat');
 
 /*
 19. Remove Falsy Values
@@ -310,6 +353,18 @@ reverseWords('Gozde loves coding');
       and returns a new array without falsy values (false, 0, "", null, undefined, NaN).
     - Log the new array.
 */
+function removeFalsyValues(arr) {
+  const truthyValues = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      truthyValues.push(arr[i]);
+    }
+  }
+  console.log('Array without falsy values:', truthyValues);
+}
+
+removeFalsyValues([0, 1, false, 2, '', 3, null, undefined, NaN, 'hello']);
+removeFalsyValues([true, 'world', 42, '', 0]);
 
 /*
 20. Sum of All Digits in a String
@@ -318,6 +373,19 @@ reverseWords('Gozde loves coding');
     - Log the final sum.
     - Example: "abc123" -> 6
 */
+function sumDigits(str) {
+  let sum = 0;
+  for (let char of str) {
+    if (char >= '0' && char <= '9') {
+      sum += Number(char);
+    }
+  }
+  console.log(`Sum of digits in "${str}" is: ${sum}`);
+}
+
+sumDigits('abc123');
+sumDigits('no digits here');
+sumDigits('4 score and 7 years ago');
 
 /*
 21. Average of Array Elements
@@ -325,6 +393,16 @@ reverseWords('Gozde loves coding');
       to calculate the average (sum / length).
     - Log the average.
 */
+function averageArray(number) {
+  let sum = 0;
+  for (let i = 0; i < number.length; i++) {
+    sum += number[i];
+  }
+  const average = sum / number.length;
+  console.log(`Average is: ${average}`);
+}
+averageArray([1, 2, 3, 4, 5]);
+averageArray([10, 20, 30]);
 
 /*
 22. Flatten a 2D Array (Nested Loops)
@@ -332,6 +410,18 @@ reverseWords('Gozde loves coding');
       (e.g., [[1,2],[3,4]]) and uses nested loops to create a new one-dimensional array.
     - Log the flattened array.
 */
+function flattenArray(twoDArray) {
+  const flattened = [];
+  for (let i = 0; i < twoDArray.length; i++) {
+    for (let j = 0; j < twoDArray[i].length; j++) {
+      flattened.push(twoDArray[i][j]);
+    }
+  }
+  console.log('Flattened array:', flattened);
+}
+
+flattenArray([[1, 2], [3, 4], [5]]);
+flattenArray([['a', 'b'], ['c', 'd']]);
 
 /*
 23. Find Words Containing a Letter
@@ -340,6 +430,18 @@ reverseWords('Gozde loves coding');
       the given letter.
     - Log the filtered array.
 */
+function findWordsWithLetter(words, letter) {
+  const result = [];
+  for (let word of words) {
+    if (word.includes(letter)) {
+      result.push(word);
+    }
+  }
+  console.log(`Words containing "${letter}":`, result);
+}
+
+findWordsWithLetter(['apple', 'banana', 'cherry', 'date'], 'a');
+findWordsWithLetter(['dog', 'cat', 'elena', 'elephant'], 'e');
 
 /*
 24. Push and Pop Operations
@@ -350,6 +452,20 @@ reverseWords('Gozde loves coding');
       - logs the popped element
       - logs the final array
 */
+function pushPopExample(arr, itemToPush) {
+  let itemtoPush = itemToPush;
+  console.log('Original array:', arr);
+  arr.push(itemtoPush);
+  console.log('After push:', arr);
+  const poppedItem = arr.pop();
+  console.log('Popped item:', poppedItem);
+  console.log('Final array:', arr);
+  return arr;
+}
+pushPopExample([1, 2, 3], 4);
+pushPopExample(['a', 'b', 'c'], 'd');
+
+
 
 /*
 25. Push and Shift Operations
@@ -360,6 +476,18 @@ reverseWords('Gozde loves coding');
       - logs the removed person
       - logs the final queue
 */
+function manageQueue(queue, newPerson) {
+  console.log('Original queue:', queue);
+  queue.push(newPerson);
+  console.log('After push:', queue);
+  const removedPerson = queue.shift();
+  console.log('Removed person:', removedPerson);
+  console.log('Final queue:', queue);
+  return queue;
+}
+manageQueue(['Alice', 'Bob', 'Charlie'], 'David');
+manageQueue(['John', 'Jane'], 'Doe');
+
 
 /*
 26. To-Do List Application 
@@ -369,5 +497,14 @@ reverseWords('Gozde loves coding');
    - Inserts any new tasks at the end of the array.
    - Logs the updated list.
 */
+function updateTodoList(todoList, startIndex, deleteCount, ...newTasks) {
+  console.log('Current to-do list:', todoList);
+  todoList.splice(startIndex, deleteCount);
+  todoList.push(...newTasks);
+  console.log('Updated to-do list:', todoList);
+  return todoList;
+}
 
-const todoList = ['Study JS', 'Eat breakfast', 'Walk dog'];
+updateTodoList(['Task1', 'Task2', 'Task3'], 1, 1, 'Task4', 'Task5');
+updateTodoList(['Buy groceries', 'Clean house', 'Go for running'], 0, 2, 'Walk dog');
+
