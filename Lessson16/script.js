@@ -44,6 +44,12 @@ uppercaseName('asjdnasjkdn');
    - Log the normalized email to the console.
    - Example: "USER@Example.COM" -> "user@example.com"
 */
+function normalizeEmail(email) {
+  console.log(email.toLowerCase());
+}
+normalizeEmail('USER@Example.COM');
+normalizeEmail('ANOTHER@EXAMPLE.COM');
+
 
 /*
 4. Extract Domain
@@ -69,6 +75,16 @@ getDomain('user@example.com');
    - If true, log: "<word> found in sentence."
    - Else, log: "<word> not found in sentence."
 */
+
+function containsWord(sentence, word) {
+  if (sentence.includes(word)) {
+    console.log(`${word} found in sentence.`);
+  } else {
+    console.log(`${word} not found in sentence.`);
+  }
+}
+containsWord('This is a simple test sentence.', 'simple');
+containsWord('This is a simple test sentence.', 'complex');
 
 /*
 6. File Extension Check
@@ -96,20 +112,20 @@ checkFileExtension('bjjsf.svc');
      - Logs "b is bigger" if b > a
      - Logs "Numbers are equal" if they are the same
 */
-function compareNumbers(a,b) {
-   if (a > b) {
-      return 'a is bigger than b';
-   } else if (b > a) {
-      return 'b is bigger than a';
-   }
-   else {
-      return 'Numbers are equal';
-   }
+function compareNumbers(a, b) {
+  if (a > b) {
+    return 'a is bigger than b';
+  } else if (b > a) {
+    return 'b is bigger than a';
+  }
+  else {
+    return 'Numbers are equal';
+  }
 }
 
-console.log(compareNumbers(3,4));
-console.log(compareNumbers(5,5));
-console.log(compareNumbers(9,6));  
+console.log(compareNumbers(3, 4));
+console.log(compareNumbers(5, 5));
+console.log(compareNumbers(9, 6));
 /*
 8. Palindrome Check
    - Define a function `isPalindrome(str)` that checks if `str` is the same
@@ -117,6 +133,17 @@ console.log(compareNumbers(9,6));
    - If it is, log: "<str> is a palindrome"
    - Otherwise, log: "<str> is not a palindrome"
 */
+function isPalindrome(str) {
+  const reversedStr = str.split('').reverse().join('');
+  if (str === reversedStr) {
+    console.log(`${str} is a palindrome`);
+  } else {
+    console.log(`${str} is not a palindrome`);
+  }
+}
+isPalindrome('hello');
+isPalindrome('madam');
+isPalindrome('apple');
 
 /*
 9. String Truncation
@@ -124,6 +151,18 @@ console.log(compareNumbers(9,6));
      cut the string to `maxLength` characters, then appends "..." if it was too long.
    - Log the final truncated string.
 */
+function truncateString(text, maxLength) {
+  if (text.length > maxLength) {
+    console.log(text.slice(0, maxLength) + '...');
+
+  }
+  else {
+
+    console.log(text);
+  }
+}
+truncateString('This is a long sentence that needs to be truncated.', 20);
+truncateString('Short text', 20);
 
 /*
 10. Check Even or Odd (if-else)
@@ -131,6 +170,17 @@ console.log(compareNumbers(9,6));
      - Logs "Even" if the number is even
      - Logs "Odd" if the number is odd
 */
+function evenOrOdd(number) {
+  if (number % 2 === 0) {
+    console.log('Even');
+  } else {
+    console.log('Odd');
+  }
+}
+
+evenOrOdd(4);
+evenOrOdd(7);
+evenOrOdd(10);
 
 /*
 11. URL Protocol Checker
@@ -138,6 +188,17 @@ console.log(compareNumbers(9,6));
      and checks if it starts with "https" using .startsWith().
    - Log "Secure connection" if true, otherwise "Unsecure connection".
 */
+function checkProtocol(url) {
+  const lowerCase = url.toLowerCase();
+  if (lowerCase.startsWith('https')) {
+    console.log('Secure connection');
+  } else {
+    console.log('Unsecure connection');
+  }
+}
+checkProtocol('HTTPS://example.com');
+checkProtocol('http://example.com');
+checkProtocol('HtTpS://example.com');
 
 /*
 12. Switch: Day of the Week
@@ -197,6 +258,12 @@ getDayOfWeek(10);
      to repeat `word` `times` times.
    - Log the repeated result.
 */
+function repeatWord(word, times) {
+  console.log(word.repeat(times));
+}
+repeatWord('Hello ', 3);
+repeatWord('abc', 5);
+repeatWord('xyz', 0);
 
 /*
 14. Replace Substring
@@ -204,6 +271,12 @@ getDayOfWeek(10);
      with "****" (use .replaceAll() or multiple .replace()).
    - Log the censored sentence.
 */
+function censorWord(sentence, target) {
+  console.log(sentence.replaceAll(target, '****'));
+}
+censorWord('This is a bad word. That bad word is not allowed.', 'bad');
+censorWord('This is a test. Testing is fun.', 'test');
+
 
 /*
 15. Check First Character (if-else)
@@ -211,6 +284,17 @@ getDayOfWeek(10);
      (use .charAt(0) or [0]).
    - Log "Starts with A" or "Does not start with A".
 */
+function startsWithA(str) {
+  if (str.charAt(0).toLowerCase() === 'a') {
+    console.log('Starts with A');
+  } else {
+    console.log('Does not start with A');
+  }
+}
+startsWithA('Apple');
+startsWithA('banana');
+startsWithA('Avokado');
+startsWithA('cherry');
 
 /*
 16. Slice Last N Characters
@@ -218,6 +302,12 @@ getDayOfWeek(10);
      the last `n` characters of `text`.
    - Log the result.
 */
+function sliceLastN(text, n) {
+  console.log(text.slice(-n));
+}
+sliceLastN('Hello, world!', 6);
+sliceLastN('JavaScript', 4);
+sliceLastN('abcdef', 2);
 
 /*
 17. Switch: Grade Checker
@@ -229,6 +319,29 @@ getDayOfWeek(10);
      below 60 -> "F"
    - Log the grade.
 */
+function gradeChecker(score) {
+  if (score >= 90) {
+    console.log('A');
+  }
+  else if (score >= 80) {
+    console.log('B');
+  }
+  else if (score >= 70) {
+    console.log('C');
+  }
+  else if (score >= 60) {
+    console.log('D');
+  }
+  else {
+    console.log('F');
+  }
+}
+gradeChecker(95);
+gradeChecker(82);
+gradeChecker(76);
+gradeChecker(61);
+gradeChecker(50);
+
 
 /*
 18. Character Replacement
@@ -236,15 +349,30 @@ getDayOfWeek(10);
      (or a loop) to swap all occurrences of oldChar with newChar.
    - Log the result.
 */
+function replaceCharacter(str, oldChar, newChar) {
+  console.log(str.replaceAll(oldChar, newChar));
+}
+replaceCharacter('banana', 'a', 'o');
+replaceCharacter('hello world', 'l', 'x');
+replaceCharacter('javascript', 'j', 'J');
 
 /*
 19. Title Case a Sentence
-   - Define a function `titleCase(sentence)` that:
+   - Define a function `titleCase(sentence)` that
      - Splits the sentence by spaces
      - Uppercases the first letter of each word
      - Joins them back
    - Log the transformed string.
 */
+function titleCase(sentence) {
+  const words = sentence.split(' ');
+  const titleCasedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+  const titleCasedSentence = titleCasedWords.join(' ');
+  console.log(titleCasedSentence);
+}
+titleCase('this is a test sentence.');
+titleCase('another example here.');
+titleCase('javaScript is fun.');
 
 /*
 20. Switch: Traffic Light
@@ -254,6 +382,26 @@ getDayOfWeek(10);
      - "green" -> log: "Go"
      - anything else -> "Invalid color"
 */
+function trafficLight(color) {
+  switch (color.toLowerCase()) {
+    case 'red':
+      console.log('Stop');
+      break;
+    case 'yellow':
+      console.log('Caution');
+      break;
+    case 'green':
+      console.log('Go');
+      break;
+    default:
+      console.log('Invalid color');
+      break;
+  }
+}
+trafficLight('red');
+trafficLight('YELLOW');
+trafficLight('Green');
+trafficLight('white');
 
 /*
 21. Check String Length (if-else)
@@ -261,6 +409,17 @@ getDayOfWeek(10);
      is more than 10.
    - Log "Long string" or "Short string".
 */
+function isLongString(str) {
+  if (str.length > 10) {
+    console.log('Long string');
+  } else {
+    console.log('Short string');
+  }
+}
+
+isLongString('Hello World!');
+isLongString('Hi');
+isLongString('JavaScript');
 
 /*
 22. Convert to Lowercase Then Check
@@ -269,6 +428,16 @@ getDayOfWeek(10);
    - If it does, log "This text is spam."
    - Otherwise, log "This text is not spam."
 */
+function isSpam(text) {
+  const lowerText = text.toLowerCase();
+  if (lowerText.includes('spam')) {
+    console.log('This text is spam.');
+  } else {
+    console.log('This text is not spam.');
+  }
+}
+isSpam('This is a SPAM message.');
+isSpam('Hello, how are you?');
 
 /*
 23. Extract Initials
@@ -276,6 +445,16 @@ getDayOfWeek(10);
      then logs the capitalized first letter of each.
    - Example: "John Doe" -> "J.D."
 */
+function getInitials(fullName) {
+  let nameParts = fullName.split(' ');
+  let initialsArray = nameParts.map(function (name) {
+    return name[0].toUpperCase();
+  });
+  console.log(initialsArray.join('.') + '.');
+}
+getInitials('John Doe');
+getInitials('Jane Ann Smith');
+getInitials('SingleName');
 
 /*
 24. Switch: Month to Season
@@ -286,6 +465,38 @@ getDayOfWeek(10);
      - 9, 10, 11 -> "Autumn"
    - Log the season or "Invalid month" if out of range.
 */
+function getSeason(monthNum) {
+  switch (monthNum) {
+    case 12:
+    case 1:
+    case 2:
+      console.log('Winter');
+      break;
+    case 3:
+    case 4:
+    case 5:
+      console.log('Spring');
+      break;
+    case 6:
+    case 7:
+    case 8:
+      console.log('Summer');
+      break;
+    case 9:
+    case 10:
+    case 11:
+      console.log('Autumn');
+      break;
+    default:
+      console.log('Invalid month');
+      break;
+  }
+}
+getSeason(1);
+getSeason(4);
+getSeason(7);
+getSeason(10);
+getSeason(13);
 
 /*
 25. Check If String Contains Number
@@ -293,6 +504,19 @@ getDayOfWeek(10);
      .match() to check if there's any digit in the string.
    - Log "Contains number" or "No number found".
 */
+function containsNumber(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (!isNaN(str[i]) && str[i] !== ' ') {
+      console.log('Contains number');
+      return;
+    }
+  }
+  console.log('No number found');
+
+}
+containsNumber('Hello123');
+containsNumber('No digits here');
+containsNumber('Test 456 test');
 
 /*
 26. Pad a String
@@ -300,13 +524,33 @@ getDayOfWeek(10);
      uses .padEnd() or .padStart() to make the string reach maxLength with '*'.
    - Log the padded string.
 */
-
+function padString(str, maxLength) {
+  if (str.length < maxLength) {
+    console.log(str.padEnd(maxLength, '*'));
+  }
+  else {
+    console.log(str);
+  }
+}
+padString('Hello', 10);
+padString('JavaScript', 5);
+padString('Pad me', 8);
 /*
 27. If-Else: Voting Eligibility
    - Define a function `canVote(age)` that logs:
      - "Can vote" if age >= 18
      - "Too young to vote" otherwise
 */
+function canVote(age) {
+  if (age >= 18) {
+    console.log('can vote');
+  } else {
+    console.log('too young to vote')
+  }
+}
+canVote(20);
+canVote(16);
+canVote(18);
 
 /*
 28. Reverse Words in a Sentence
@@ -316,6 +560,15 @@ getDayOfWeek(10);
      - Joins them back
    - Log the result.
 */
+function reverseWords(sentence) {
+  const words = sentence.split(' ');
+  const reversedWords = words.map(word => word.split('').reverse().join(''));
+  const reversedSentence = reversedWords.join(' ');
+  console.log(reversedSentence);
+}
+reverseWords('Hello World');
+reverseWords('JavaScript is fun');
+reverseWords('abc def ghi');
 
 /*
 29. Check Substring Position
@@ -323,6 +576,16 @@ getDayOfWeek(10);
      to find the starting index. If not found, return -1.
    - Log the index or log "Not found" if it's -1.
 */
+function findWordPosition(sentence, word) {
+  const index = sentence.indexOf(word);
+  if (index !== -1) {
+    console.log(`Index of ${word}:`, index);
+  } else {
+    console.log('Not found');
+  }
+}
+findWordPosition('This is a simple test sentence.', 'simple');
+findWordPosition('This is a simple test sentence.', 'complex');
 
 /*
 30. Switch: Simple Calculator
@@ -334,3 +597,27 @@ getDayOfWeek(10);
      - Otherwise -> "Invalid operator"
    - Log the result.
 */
+function calculate(a, operator, b) {
+  switch (operator) {
+    case '+':
+      console.log(a + b);
+      break;
+    case '-':
+      console.log(a - b);
+      break;
+    case '*':
+      console.log(a * b);
+      break;
+    case '/':
+      console.log(a / b);
+      break;
+    default:
+      console.log('Invalid operator');
+      break;
+  }
+}
+calculate(5, '+', 3);
+calculate(10, '-', 4);
+calculate(6, '*', 7);
+calculate(20, '/', 5);
+calculate(8, '%', 2);
