@@ -409,7 +409,7 @@ console.log("---------------------------------");
    - Log the transformed string.
 */
 function titleCase(sentence) {
-  const words = sentence.split("");
+  const words = sentence.split(" ");
   const titleCasedWords = words.map(
     (word) => word[0].toUpperCase() + word.slice(1).toLowerCase()
   );
