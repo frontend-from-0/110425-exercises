@@ -26,9 +26,9 @@ Run this file in Node.js or the browser console to test.
    - cookingTime (number, in minutes)
 */
 let recipes = [{
-  name: "Pasta",
-  ingredients: ["pasta", "tomato", "garlic"],
-  cookingTime: 20
+  name: "tarragon chicken",
+  ingredients: ["chicken", "tarragon", "cream"],
+  cookingTime: 40
 },
 {
   name: "mushroom soup",
@@ -69,8 +69,6 @@ function displayAllRecipes() {
     console.log(`Cooking Time: ${recipe.cookingTime} minutes`);
   }
 }
-
-
 /*
 -----------------------------------------------------------
   STEP 3: Add a New Recipe
@@ -81,6 +79,22 @@ Function: addRecipe(name, ingredients, cookingTime)
 - If not, add the new recipe and log success.
 - ingredients should be an array like ['egg', 'milk', 'flour']
 */
+function addRecipe(name, ingredients, cookingTime) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === name) {
+      console.log("Recipe already exists.Will not add.");
+      return;
+    }
+  }
+  const newRecipe = {
+    name: name,
+    ingredients: ingredients,
+    cookingTime: cookingTime
+  };
+  recipes.push(newRecipe);
+  console.log("Recipe added successfully.");
+}
+
 
 
 /*
@@ -91,7 +105,19 @@ Function: viewRecipe(name)
 - Looks for the recipe by name and logs all its info.
 - If not found, shows a message.
 */
-
+function viewRecipe(name) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === name) {
+      console.log(`Name: ${recipes[i].name}`);
+      console.log(`Ingredients: ${recipes[i].ingredients.join(", ")}`);
+      console.log(`Cooking Time: ${recipes[i].cookingTime} minutes`);
+      return;
+    }
+    else {
+      console.log("Recipe not found.");
+    }
+  }
+}
 
 
 /*
@@ -103,6 +129,18 @@ Function: updateRecipe(name, newIngredients, newCookingTime)
 - Updates ingredients and cookingTime.
 - Logs success or error message.
 */
+function updateRecipe(name, newIngredients, newCookingTime) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === name) {
+      recipes[i].ingredients === newIngredients;
+      recipes[i].cookingTime === newCookingTime;
+      console.log("Recipe updated successfully.");
+      return;
+    }
+  }
+  console.log("Recipe not found. Cannot update.");
+}
+
 
 
 /*
@@ -113,6 +151,24 @@ Function: deleteRecipe(name)
 - Finds and removes the recipe from the array.
 - Logs success or error message.
 */
+function deleteRecipe(name) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === name) {
+      recipes.splice(i, 1);
+      console.log("Recipe deleted successfully.");
+      return;
+    }
+    else {
+      console.log("Recipe not found. Cannot delete.");
+
+
+
+    }
+
+  }
+
+}
+
 
 
 /*
@@ -121,7 +177,29 @@ Function: deleteRecipe(name)
 -----------------------------------------------------------
 Function: filterByIngredient(ingredient)
 - Shows all recipes that use a certain ingredient.
-
+ 
 Function: filterByMaxTime(maxMinutes)
 - Shows recipes that take <= maxMinutes to cook.
 */
+
+function filterByIngredient(ingredient) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].includes(ingredient)) {
+      console.log('Name; ${recipes[i].name} ');
+    }
+  }
+}
+
+function filterByMaxTime(maxMinutes) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].cookingTime <= maxMinutes) {
+      console.log(`Cooking Time: ${recipes[i].cookingTime} minutes`);
+    }
+  }
+}
+
+
+
+
+
+
