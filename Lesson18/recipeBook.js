@@ -25,6 +25,30 @@ Run this file in Node.js or the browser console to test.
    - ingredients (array of strings)
    - cookingTime (number, in minutes)
 */
+let recipes = [{
+  name: "Pasta",
+  ingredients: ["pasta", "tomato", "garlic"],
+  cookingTime: 20
+},
+{
+  name: "mushroom soup",
+  ingredients: ["mushroom", "onion", "cream"],
+  cookingTime: 30
+},
+{
+  name: "salad",
+  ingredients: ["lettuce", "tomato", "cucumber"],
+  cookingTime: 10
+},
+{
+  name: "hummus",
+  ingredients: ["chickpeas", "tahini", "lemon"],
+  cookingTime: 15
+}
+];
+
+
+
 
 
 /*
@@ -37,6 +61,14 @@ Function: displayAllRecipes()
   Ingredients: pasta, tomato, garlic
   Cooking Time: 20 minutes
 */
+function displayAllRecipes() {
+
+  for (let recipe of recipes) {
+    console.log(`Name: ${recipe.name}`);
+    console.log(`Ingredients: ${recipe.ingredients.join(", ")}`);
+    console.log(`Cooking Time: ${recipe.cookingTime} minutes`);
+  }
+}
 
 
 /*
