@@ -29,10 +29,9 @@ function findMax(numbers) {
   let maxNumber = numbers[0];
 
   for (let i = 1; i < numbers.length; i++) {
-    const nextNumber = numbers[i + 1];
-    if (maxNumber < nextNumber) {
-      maxNumber = nextNumber;
-    }
+    if (numbers[i] > maxNumber) {
+  maxNumber = numbers[i];
+}
   }
 
   console.log('Maximum number is:', maxNumber);
@@ -410,7 +409,6 @@ function flattenArray(twoDArray){
     }
   }
   console.log(`Flattened array: ${flattenedArr}`);
-  console.log('Flattened array:',flattenedArr);
 }
 flattenArray([[1,2],[3,4],[5,6]]);
 flattenArray([['a','b'],['c','d']]);
