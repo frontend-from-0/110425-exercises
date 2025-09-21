@@ -15,6 +15,8 @@ You'll practice:
 Run this file in Node.js or the browser console to test.
 */
 
+
+
 /*
 -----------------------------------------------------------
   STEP 1: Setup and Initial Recipes
@@ -25,6 +27,12 @@ Run this file in Node.js or the browser console to test.
    - ingredients (array of strings)
    - cookingTime (number, in minutes)
 */
+let recipes = [
+  { name: "tarragon chicken", ingredients: ["chicken", "tarragon", "cream"], cookingTime: 40 },
+  { name: "mushroom soup", ingredients: ["mushroom", "onion", "cream"], cookingTime: 30 },
+  { name: "salad", ingredients: ["lettuce", "tomato", "cucumber"], cookingTime: 10 },
+  { name: "hummus", ingredients: ["chickpeas", "tahini", "lemon"], cookingTime: 15 },
+];
 
 
 /*
@@ -37,6 +45,13 @@ Function: displayAllRecipes()
   Ingredients: pasta, tomato, garlic
   Cooking Time: 20 minutes
 */
+function displayAllRecipes() {
+  for (let recipe of recipes) {
+    console.log(`Name: ${recipe.name}`);
+    console.log(`Ingredients: ${recipe.ingredients.join(", ")}`);
+    console.log(`Cooking Time: ${recipe.cookingTime} minutes\n`);
+  }
+}
 
 
 /*
@@ -50,6 +65,12 @@ Function: addRecipe(name, ingredients, cookingTime)
 - ingredients should be an array like ['egg', 'milk', 'flour']
 */
 
+function addRecipe(name, ingredients, cookingTime) {
+  const newRecipe = { name, ingredients, cookingTime };
+  recipes.push(newRecipe);
+  console.log("Recipe added successfully.");
+}
+
 
 /*
 -----------------------------------------------------------
@@ -59,6 +80,18 @@ Function: viewRecipe(name)
 - Looks for the recipe by name and logs all its info.
 - If not found, shows a message.
 */
+function viewRecipe(name) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === name) {
+      console.log(`Name: ${recipes[i].name}`);
+      console.log(`Ingredients: ${recipes[i].ingredients.join(", ")}`);
+      console.log(`Cooking Time: ${recipes[i].cookingTime} minutes`);
+      return;
+    }
+  }
+  console.log("Recipe not found.");
+}
+
 
 
 
@@ -71,7 +104,17 @@ Function: updateRecipe(name, newIngredients, newCookingTime)
 - Updates ingredients and cookingTime.
 - Logs success or error message.
 */
-
+function updateRecipe(name, newIngredients, newCookingTime) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === name) {
+      recipes[i].ingredients = newIngredients;
+      recipes[i].cookingTime = newCookingTime;
+      console.log("Recipe updated successfully.");
+      return;
+    }
+  }
+  console.log("Recipe not found. Cannot update.");
+}
 
 /*
 -----------------------------------------------------------
@@ -83,13 +126,57 @@ Function: deleteRecipe(name)
 */
 
 
+function deleteRecipe(name) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].name === name) {
+      recipes.splice(i, 1);
+      console.log("Recipe deleted successfully.");
+      return;
+    }
+  }
+  console.log("Recipe not found. Cannot delete.");
+}
+
+
+
+
 /*
 -----------------------------------------------------------
   STEP 7: Extra Challenge – Filter Recipes
 -----------------------------------------------------------
 Function: filterByIngredient(ingredient)
 - Shows all recipes that use a certain ingredient.
-
+ 
 Function: filterByMaxTime(maxMinutes)
 - Shows recipes that take <= maxMinutes to cook.
 */
+
+
+
+function filterByIngredient(ingredient) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].ingredients.includes(ingredient)) {
+      console.log(`Name: ${recipes[i].name}`);
+      console.log(`Ingredients: ${recipes[i].ingredients.join(", ")}`);
+      console.log(`Cooking Time: ${recipes[i].cookingTime} minutes\n`);
+    }
+  }
+}
+
+function filterByMaxTime(maxMinutes) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (recipes[i].cookingTime <= maxMinutes) {
+      console.log(`Name: ${recipes[i].name}`);
+      console.log(`Ingredients: ${recipes[i].ingredients.join(", ")}`);
+      console.log(`Cooking Time: ${recipes[i].cookingTime} minutes\n`);
+    }
+  }
+}
+/* TEST CALLS */
+displayAllRecipes();
+addRecipe("omelette", ["egg", "salt", "pepper"], 5);
+viewRecipe("hummus");
+updateRecipe("salad", ["lettuce", "tomato", "cucumber"], 12);
+deleteRecipe("mushroom soup");
+filterByIngredient("lemon");
+filterByMaxTime(20);
