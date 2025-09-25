@@ -88,7 +88,11 @@ Function: viewRecipe(name)
 function viewRecipe(name){
   for (let i = 0; i < recipes.length; i++) {
     if (recipes[i].name === name) {
-      console.log(`Recipe found: ${name}`);
+      const recipe = recipes[i];
+      console.log(`Recipe found: ${recipe.name}`);
+      console.log(`Ingredients: ${recipe.ingredients.join(", ")}`);
+      console.log(`Cooking Time: ${recipe.cookingTime} minutes`);
+
     return;
 }
   }
