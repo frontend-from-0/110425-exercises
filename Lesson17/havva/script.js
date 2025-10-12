@@ -549,7 +549,7 @@ console.log(`---------------------------------`)
 
 const todoList = ['Study JS', 'Eat breakfast', 'Walk dog'];
 
-function updateTodoList(todoList, startIndex, deleteCount, … newTasks) {
+function updateTodoList(todoList, startIndex, deleteCount, ...newTasks) {
   console.log(todoList);
   todoList.splice(startIndex, deleteCount, ...newTasks);
   console.log(todoList);
