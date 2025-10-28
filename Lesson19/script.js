@@ -102,7 +102,44 @@ class ShoppingCart {
     }
     console.log(`Item ${name} is not found in the cart.`)
   }
+  getTotal() {
+    if (this.items.length === 0) {
+      console.log('The cart is empty');
+      return 0;
+    }
+    const total = this.items.reduce((acc, item) => {
+      return acc + item.price * item.quantity;
+    }, 0);
+    return total;
+  }
+
+  applyDiscount(code) {
+    const discounts = {
+      SAVE10: 0.1,
+      SAVE20: 0.2,
+      SAVE30: 0.3,
+    };
+
+    if (!discounts[code]) {
+      console.log('Invalid discount code');
+      return this.getTotal(); // return the original total if the code is invalid
+    }
+
+    const total = this.getTotal();
+    const discountAmount = total * discounts[code];
+    const newTotal = this.rounded(total - discountAmount);
+
+    console.log(`Discount code applied. New total is: ${newTotal} EUR`);
+    return newTotal;
+  }
+
+
 }
+
+
+
+
+
 
 const groceryCart = new ShoppingCart();
 groceryCart.viewCart();
@@ -114,6 +151,10 @@ groceryCart.viewCart();
 
 groceryCart.removeItem(`Cucumber`);
 groceryCart.viewCart();
+groceryCart.getTotal();
+groceryCart.applyDiscount('SAVE10');
+groceryCart.applyDiscount('XXX');
+
 
 /*
 -----------------------------------------------------------
@@ -146,6 +187,7 @@ groceryCart.viewCart();
    - Calculate and return the total cost of all items in 
      the cart.
 */
+
 
 /*
 -----------------------------------------------------------
