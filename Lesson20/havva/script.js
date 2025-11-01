@@ -410,7 +410,7 @@ class Bank {
     if (this.authenticate(accountNumber, pin)) {
       return account.getBalanceValue();
     } else {
-      return null
+      return null;
     }
   }
 
