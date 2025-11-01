@@ -146,7 +146,7 @@ class BankAccount {
   }
 
   deposit(amount, description) {
-    if (amount < 0) {
+    if (amount =< 0) {
       console.error('Only deposit with positive amount is allowed.');
       return;
     }
