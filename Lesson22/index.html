@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +15,20 @@
 
       <form class="booking" id="booking-form">
         <section class="calendar">
+          <label for="username">Full Name</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your full name"
+            required
+          />
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
           <label for="date">Select a date</label>
           <input type="date" id="date" />
           <h2 id="timeslots-heading">Available Time Slots</h2>
@@ -59,9 +74,12 @@
 
         <aside class="summary">
           <h2>Your Appointment</h2>
+          <p>Name: <span id="selected-name">-</span></p>
+          <p>Email: <span id="selected-email">-</span></p>
           <p>Date: <span id="selected-date">-</span></p>
           <p>Time: <span id="selected-time">-</span></p>
-          <button id="confirm" type="button">Confirm Booking</button>
+
+          <button id="confirm" type="button" disabled>Confirm Booking</button>
         </aside>
       </form>
 
@@ -70,11 +88,16 @@
         <div>
           <p>Date: <span id="confirmed-date"></span></p>
           <p>Time: <span id="confirmed-time"></span></p>
+          <p>Name: <span id="confirmed-name"></span></p>
+          <p>Email:<span id="confirmed-email"></span></p>
         </div>
       </section>
     </div>
 
-    <script src="utils.js"></script>
     <script src="script.js"></script>
+    <style>
+      @import url("styles.css");
+    </style>
   </body>
 </html>
+
