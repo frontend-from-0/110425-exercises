@@ -83,6 +83,7 @@ class ShoppingCart {
 
   // STEP 2: Add Items to the Cart
   addItem(name, quantity, price) {
+    // First, check if the item already exists in the cart
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name === name) {
         console.log(
@@ -90,12 +91,12 @@ class ShoppingCart {
         );
         this.items[i].quantity = this.items[i].quantity + quantity;
         return;
-      } else {
-        console.log('Adding an item to cart...');
-        this.items.push({ name, quantity, price });
-        return;
       }
     }
+    
+    // If we reach here, the item doesn't exist, so add it
+    console.log('Adding an item to cart...');
+    this.items.push({ name, quantity, price });
   }
 
   // STEP 3: Remove Items from the Cart
@@ -215,7 +216,6 @@ emptyCart.removeItem('Carrots');
 console.log('Viewing empty cart:');
 emptyCart.viewCart();
 
-console.log('\n🎉 All Shopping Cart features tested successfully! 🎉');
 
 /*
 -----------------------------------------------------------
