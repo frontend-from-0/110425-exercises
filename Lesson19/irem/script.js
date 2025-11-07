@@ -36,7 +36,7 @@ Price:
 
 */
 
-const itemsInTheStore = {
+const priceList = {
   carrots: {
     amount: 0.99,
     currency: 'EUR',
@@ -59,7 +59,7 @@ const itemsInTheStore = {
 class ShoppingCart {
   constructor() {
     this.items = [
-      { name: 'Carrots', quantity: 10, price: itemsInTheStore.carrots.amount },
+      { name: 'Carrots', quantity: 10, price: priceList.carrots.amount },
     ];
   }
 
@@ -166,13 +166,13 @@ groceryCart.viewCart();
 // Test STEP 2: Add Items to Cart
 console.log('\n--- STEP 2: Testing addItem method ---');
 console.log('Adding new item - Cucumber:');
-groceryCart.addItem('Cucumber', 5, itemsInTheStore.cucumber.amount);
+groceryCart.addItem('Cucumber', 5, priceList.cucumber.amount);
 
 console.log('\nAdding new item - Milk:');
-groceryCart.addItem('Milk', 2, itemsInTheStore.milk.amount);
+groceryCart.addItem('Milk', 2, priceList.milk.amount);
 
 console.log('\nTrying to add existing item - Carrots (should update quantity):');
-groceryCart.addItem('Carrots', 3, itemsInTheStore.carrots.amount);
+groceryCart.addItem('Carrots', 3, priceList.carrots.amount);
 
 console.log('\nCart after adding items:');
 groceryCart.viewCart();
