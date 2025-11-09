@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+    <form novalidate id="checkoutForm" method="post" role="form" aria-label="Checkout form">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="email@example.com"
+          name="email"
+          aria-describedby="emailError"
+          aria-required="true"
+        />
+        <p id="emailError" class="input-error hidden" role="alert"></p>
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone</label>
+        <input
+          id="phone"
+          type="tel"
+          placeholder="+1 555 123 4567"
+          name="phoneNumber"
+          value="+"
+          aria-describedby="phoneError"
+          aria-required="true"
+        />
+        <p id="phoneError" class="input-error hidden" role="alert"></p>
+      </div>
+      <div class="input-group">
+        <label for="firstname">First Name</label>
+        <input
+          id="firstname"
+          type="text"
+          placeholder="Sophia"
+          name="firstname"
+          aria-describedby="firstnameError"
+          aria-required="true"
+        />
+        <p id="firstnameError" class="input-error hidden" role="alert"></p>
+      </div>
+     
+      <div class="input-group">
+        <label for="lastname">Last Name</label>
+        <input id="lastname" type="text" placeholder="Clark" name="lastname" aria-describedby="lastnameError" aria-required="true" />
+        <p id="lastnameError" class="input-error hidden" role="alert"></p>
+      </div>
+
+      <div class="input-group">
+        <label for="cardnumber">Card Number</label>
+        <input
+          id="cardnumber"
+          type="text"
+          placeholder="1234 5678 9101 1121"
+          name="cardnumber"
+          maxlength="19"
+          aria-describedby="cardnumberError"
+          aria-required="true"
+        />
+        <p id="cardnumberError" class="input-error hidden" role="alert"></p>
+      </div>
+      <div class="input-group">
+        <label for="expDate">Expiration Date</label>
+        <input id="expDate" type="text" placeholder="MM/YY" name="expDate" maxlength="5" aria-describedby="expDateError" aria-required="true" />
+        <p id="expDateError" class="input-error hidden" role="alert"></p>
+      </div>
+      <div class="input-group">
+        <label for="cvv">CVV</label>
+        <input id="cvv" type="text" placeholder="123" name="cvv" maxlength="4" aria-describedby="cvvError" aria-required="true" />
+        <p id="cvvError" class="input-error hidden" role="alert"></p>
+      </div>
+      <button type="submit" class="btn-success" id="successButton" disabled aria-label="Place order - form must be valid to enable">Place Order</button>
+    </form>
+    <div class="hidden" id="success" role="alert" aria-live="polite">
+      <p>Success!</p>
+    </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
