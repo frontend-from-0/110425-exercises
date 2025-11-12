@@ -63,16 +63,33 @@ for (let i = 0; i < products.length; i++) {
     productElements.cartInfo.classList.remove('hidden');
   });
 
+
   // add event listener for increment button
+  productElements.increment.addEventListener('click', () =>
+    incrementProductQuantity(
+      productElements.quantity,
+      productElements.decrement,
+    ),
+  );
 
   // add event listener for decrement button
+
+  productElements.decrement.addEventListener('click', () =>
+    decrementProductQuantity(
+      productElements.quantity,
+      productElements.decrement,
+    ),
+  );
 
   // applesIncrement.addEventListener('click', () =>
   //   incrementProductQuantity(applesElements.quantity, applesElements.decrement),
   // );
+
+
   // applesDecrement.addEventListener('click', () =>
   //   decrementProductQuantity(applesElements.quantity, applesElements.decrement),
   // );
+
 
   productElements.remove.addEventListener('click', () => {
     handleRemove(productElements.quantity, productElements.cartInfo);
@@ -125,6 +142,17 @@ function handleRemove(productQuantitySpan, productCartInfo) {
   productCartInfo.classList.add('hidden');
 }
 
+function clearCart() {
+  for (let i = 0; i < products.length; i++) {
+    const productElements = data[products[i]].elements;
+    handleRemove(productElements.quantity, productElements.cartInfo);
+  }
+  totalPrice.innerText = '0';
+}
+
+const clearCartButton = document.getElementById('clear_cart');
+clearCartButton.addEventListener('click', clearCart);
+
 // const products = [
 //   {
 //     quantity: 'apples_quantity',
@@ -160,3 +188,6 @@ function handleRemove(productQuantitySpan, productCartInfo) {
 //     },
 //   }
 // }
+//
+
+//
