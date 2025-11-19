@@ -269,9 +269,22 @@
                 Whole Wheat Bread
               </p>
               <p
-                class="text-[#974e52] text-sm font-normal leading-normal line-clamp-2"
+                class="flex gap-4 items-center text-[#974e52] text-sm font-normal leading-normal line-clamp-2"
               >
-                Quantity: <span id="bread_quantity">1</span>
+                <span>Quantity:</span>
+                <button
+                  class="bg-gray-200 h-5 w-5 inline-flex items-center justify-center rounded"
+                  id="bread_decrement"
+                >
+                  -
+                </button>
+                <span id="bread_quantity">1</span>
+                <button
+                  class="bg-gray-200 h-5 w-5 inline-flex items-center justify-center rounded"
+                  id="bread_increment"
+                >
+                  +
+                </button>
               </p>
             </div>
           </div>
@@ -302,9 +315,22 @@
                 Free-Range Eggs
               </p>
               <p
-                class="text-[#974e52] text-sm font-normal leading-normal line-clamp-2"
+                class="flex gap-4 items-center text-[#974e52] text-sm font-normal leading-normal line-clamp-2"
               >
-                Quantity: <span id="eggs_quantity">1</span>
+                <span>Quantity:</span>
+                <button
+                  class="bg-gray-200 h-5 w-5 inline-flex items-center justify-center rounded"
+                  id="eggs_decrement"
+                >
+                  -
+                </button>
+                <span id="eggs_quantity">1</span>
+                <button
+                  class="bg-gray-200 h-5 w-5 inline-flex items-center justify-center rounded"
+                  id="eggs_increment"
+                >
+                  +
+                </button>
               </p>
             </div>
           </div>
@@ -325,6 +351,8 @@
         <div class="flex px-4 py-3 justify-end">
           <button
             class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f3e7e8] text-[#1b0e0f] text-sm font-bold leading-normal tracking-[0.015em]"
+            id="clear_cart"
+            
           >
             Clear Cart
           </button>
@@ -334,3 +362,4 @@
     <script src="./script.js"></script>
   </body>
 </html>
+
