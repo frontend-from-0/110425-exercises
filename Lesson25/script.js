@@ -73,15 +73,6 @@ for (let i = 0; i < products.length; i++) {
     ),
   );
 
-  // applesIncrement.addEventListener('click', () =>
-  //   incrementProductQuantity(applesElements.quantity, applesElements.decrement),
-  // );
-
-
-  // applesDecrement.addEventListener('click', () =>
-  //   decrementProductQuantity(applesElements.quantity, applesElements.decrement),
-  // );
-
 
   productElements.remove.addEventListener('click', () => {
     handleRemove(productElements.quantity, productElements.cartInfo);
