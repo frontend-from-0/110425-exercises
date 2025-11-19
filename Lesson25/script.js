@@ -55,16 +55,12 @@ for (let i = 0; i < products.length; i++) {
     productElements.cartInfo.classList.remove('hidden');
   });
 
-
-  // add event listener for increment button
   productElements.increment.addEventListener('click', () =>
     incrementProductQuantity(
       productElements.quantity,
       productElements.decrement,
     ),
   );
-
-  // add event listener for decrement button
 
   productElements.decrement.addEventListener('click', () =>
     decrementProductQuantity(
