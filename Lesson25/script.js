@@ -1,11 +1,3 @@
-/* 
-
-TODO:
-0. Select buttons and product quantities, and total price and store them in variables
-1. Add event listenter to the button with type click
-2. When event listener is triggered, increase quantity of the product in the cart
-*/
-
 const totalPrice = document.getElementById('total_price');
 
 function createProductStructure(productName) {
@@ -63,16 +55,20 @@ for (let i = 0; i < products.length; i++) {
     productElements.cartInfo.classList.remove('hidden');
   });
 
-  // add event listener for increment button
+  productElements.increment.addEventListener('click', () =>
+    incrementProductQuantity(
+      productElements.quantity,
+      productElements.decrement,
+    ),
+  );
 
-  // add event listener for decrement button
+  productElements.decrement.addEventListener('click', () =>
+    decrementProductQuantity(
+      productElements.quantity,
+      productElements.decrement,
+    ),
+  );
 
-  // applesIncrement.addEventListener('click', () =>
-  //   incrementProductQuantity(applesElements.quantity, applesElements.decrement),
-  // );
-  // applesDecrement.addEventListener('click', () =>
-  //   decrementProductQuantity(applesElements.quantity, applesElements.decrement),
-  // );
 
   productElements.remove.addEventListener('click', () => {
     handleRemove(productElements.quantity, productElements.cartInfo);
@@ -125,38 +121,14 @@ function handleRemove(productQuantitySpan, productCartInfo) {
   productCartInfo.classList.add('hidden');
 }
 
-// const products = [
-//   {
-//     quantity: 'apples_quantity',
-//     cartInfo: 'apples_cart',
-//     actions: {
-//       add: 'apples_add',
-//       increment: 'apples_increment',
-//       decrement: 'apples_decrement',
-//       remove: 'apples_remove',
-//     },
-//   },
-//   {
-//     quantity: 'bananas_quantity',
-//     cartInfo: 'bananas_cart',
-//     actions: {
-//       add: 'bananas_add',
-//       increment: 'bananas_increment',
-//       decrement: 'bananas_decrement',
-//       remove: 'bananas_remove',
-//     },
-//   },
-// ];
+function clearCart() {
+  for (let i = 0; i < products.length; i++) {
+    const productElements = data[products[i]].elements;
+    handleRemove(productElements.quantity, productElements.cartInfo);
+  }
+  totalPrice.innerText = '0';
+}
 
-// const productsV2 = {
-//   apples: {
-//     quantity: 'apples_quantity',
-//     cartInfo: 'apples_cart',
-//     actions: {
-//       add: 'apples_add',
-//       increment: 'apples_increment',
-//       decrement: 'apples_decrement',
-//       remove: 'apples_remove',
-//     },
-//   }
-// }
+const clearCartButton = document.getElementById('clear_cart');
+clearCartButton.addEventListener('click', clearCart);
+
