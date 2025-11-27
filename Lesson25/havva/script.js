@@ -131,6 +131,7 @@ function handleRemove(productQuantitySpan, productCartInfo) {
 clearCartButton.addEventListener('click', () => {
   totalPrice.innerText = "0";
   for (let i = 0; i < products.length; i++) {
+    data[products[i]].elements.quantity.innerText = "0";
     data[products[i]].elements.cartInfo.classList.add('hidden');
   }
 })
