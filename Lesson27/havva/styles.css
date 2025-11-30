@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+nav {
+  display: flex;
+  gap: 30px;
+  max-width: 600px;
+  margin: auto;
+  height: 80px;
+  align-items: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.card-body {
+  color: #666;
+  margin: 0;
+}
+
+.button {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  max-width: max-content;
+}
+
+.button--success {
+  background-color: #4caf50;
+}
+
+.button--success:hover {
+  background-color: #45a049;
+}
+
+.button--danger {
+  background-color: #7a0916;
+}
+
+.button--danger:hover {
+  background-color: #79000cf4;
+}
+
+div form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(238, 242, 243);
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.content-box textarea {
+  height: 80px;
+}
