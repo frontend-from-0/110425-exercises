@@ -1,11 +1,13 @@
 * {
   box-sizing: border-box;
 }
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
+  font-family: "Inter", Arial, sans-serif;
+  background: #f4f6f8; 
   margin: 0;
   padding: 0;
+  color: #333;
 }
 
 .container {
@@ -29,6 +31,7 @@ header {
   background: white;
   padding: 1rem;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .calendar label {
@@ -38,11 +41,20 @@ header {
   font-weight: 700;
 }
 
+#username,
+#email,
 #date {
   padding: 0.5rem;
   font-size: 1rem;
   width: 100%;
   margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#email {
+  margin-bottom: 2rem;
 }
 
 fieldset {
@@ -95,4 +107,61 @@ fieldset {
 
 .hidden {
   display: none;
+}
+
+#confirm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .booking {
+    flex-direction: column;
+  }
+
+  .calendar,
+  .summary {
+    width: 100%;
+  }
+
+  #confirm {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* --- Confirmation Section Styling --- */
+#confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+#confirmation h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #0077cc;
+}
+
+#confirmation div {
+  margin: 0 auto;
+  background: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+}
+
+#confirmation p {
+  margin: 0.75rem 0;
+}
+
+#confirmation span {
+  font-weight: 500;
+  color: #333;
 }
