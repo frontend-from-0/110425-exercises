@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-.hidden {
-  display: none;
-}
-
 body {
   font-family: "Inter", Arial, sans-serif;
   background: #f4f6f8;
@@ -130,7 +126,6 @@ fieldset {
   }
 }
 
-/* --- Confirmation Section Styling --- */
 #confirmation {
   display: flex;
   flex-direction: column;
@@ -164,4 +159,8 @@ fieldset {
 #confirmation span {
   font-weight: 500;
   color: #333;
+}
+
+.confirmationSection.hidden {
+  display: none !important;
 }
