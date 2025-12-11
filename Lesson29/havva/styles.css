@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+#fetchBtn,
+#loadMore,
+#backToMainPage {
+  margin: 50px auto;
+  display: block;
+  padding: 10px 25px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(10, 101, 21);
+  border-color: transparent;
+}
+
+#favoritesBtn {
+  margin: 50px auto;
+  display: block;
+  padding: 10px 25px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(228, 26, 80);
+  border-color: transparent;
+}
+button {
+  padding: 15px;
+  background-color: rgb(196, 31, 31);
+  color: white;
+  border-radius: 7px;
+  border-color: transparent;
+}
+
+#gallery {
+  max-width: 1048px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: rgb(214, 227, 233);
+  border-radius: 10px;
+  padding: 50px 20px;
+}
+
+img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+#gallery.hidden {
+  display: none;
+}
+
+#favorites-container {
+  max-width: 1048px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background-color: rgb(246, 230, 238);
+  border-radius: 10px;
+  padding: 50px 20px;
+}
+
+#favorites-container > div {
+  display: flex;
+  position: relative;
+}
+
+#favorites-container > div > button {
+  position: absolute;
+}
+
+#gallery > div {
+  display: flex;
+  position: relative;
+}
+
+#gallery > div > button {
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  text-align: center;
+  color: rgb(60, 4, 4, 70);
+}
