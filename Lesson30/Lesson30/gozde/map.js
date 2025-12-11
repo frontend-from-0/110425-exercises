@@ -20,7 +20,7 @@ console.log('Ex. 1', wordsExercise1.map(word => word.toUpperCase()));
 // Given an array of numbers, square each number using .map().
 const numbersExercise2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-console.log(numbersExercise2.map((number, index) => `Square of the number ${number} at position ${index} is ${number*number}`));
+console.log(numbersExercise2.map((number, index) => `Square of the number ${number} at position ${index} is ${number * number}`));
 
 
 // Exercise 3:
@@ -105,6 +105,8 @@ const wordsExercise4 = [
 	'jungle',
 ];
 
+console.log(wordsExercise4.map(word => word.length));
+
 // Exercise 5:
 // Given an array of student objects with their names and grades, extract an array of only the student names and grade using .map(). E.g. ['Alice A', ...]
 const studentsExercise5 = [
@@ -170,7 +172,7 @@ const studentsExercise5 = [
 	},
 ];
 
-function getNameAndGrade ( studentObject) {
+function getNameAndGrade(studentObject) {
 	return studentObject.name + ' ' + studentObject.grade;
 };
 console.log(studentsExercise5.map(student => getNameAndGrade(student)))
@@ -178,6 +180,8 @@ console.log(studentsExercise5.map(student => getNameAndGrade(student)))
 // Exercise 6:
 // Given an array of numbers, convert each number to a string representation using .map().
 const numbersExercise6 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(numbersExercise6.map(number => number.toString()));
 
 // Exercise 7:
 // Given an array of sentences, split each sentence into an array of words using .map().
@@ -193,6 +197,8 @@ const sentencesExercise7 = [
 	'The mountain peaks were covered in snow.',
 	'The room was filled with laughter and joy.',
 ];
+
+console.log(sentenceExercise7.map(sentence => sentence.split(' ')));
 
 // Exercise 8:
 // Given an array of user objects, extract an array of their email addresses using .map().
@@ -258,6 +264,7 @@ const usersExercise8 = [
 		email: 'sophia@example.com',
 	},
 ];
+console.log(usersExercise8.map(user => user.email));
 
 // Exercise 9:
 // Given an array of objects representing books, extract an array of book titles and authors using .map().
@@ -324,6 +331,10 @@ const booksExercise9 = [
 	},
 ];
 
+
+
+
 // Exercise 10:
 // Given an array of prices, add a currency symbol to each price using .map().
 const pricesExercise10 = [1999, 899, 1499, 299, 399, 999, 499, 649, 99, 129];
+
