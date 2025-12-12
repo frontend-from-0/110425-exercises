@@ -329,12 +329,12 @@ const booksExercise9 = [
 		genre: 'Fantasy',
 		price: 9.99,
 	},
-];
-
+]; 
 
 
 
 // Exercise 10:
 // Given an array of prices, add a currency symbol to each price using .map().
 const pricesExercise10 = [1999, 899, 1499, 299, 399, 999, 499, 649, 99, 129];
+
 
