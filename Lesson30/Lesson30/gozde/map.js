@@ -172,10 +172,8 @@ const studentsExercise5 = [
 	},
 ];
 
-function getNameAndGrade(studentObject) {
-	return studentObject.name + ' ' + studentObject.grade;
-};
-console.log(studentsExercise5.map(student => getNameAndGrade(student)))
+const getNameAndGrade = studentObject => `${studentObject.name} ${studentObject.grade}`;
+console.log(studentsExercise5.map(getNameAndGrade));
 
 // Exercise 6:
 // Given an array of numbers, convert each number to a string representation using .map().
@@ -198,7 +196,7 @@ const sentencesExercise7 = [
 	'The room was filled with laughter and joy.',
 ];
 
-console.log(sentenceExercise7.map(sentence => sentence.split(' ')));
+console.log(sentencesExercise7.map(sentence => sentence.split(' ')));
 
 // Exercise 8:
 // Given an array of user objects, extract an array of their email addresses using .map().
@@ -264,6 +262,7 @@ const usersExercise8 = [
 		email: 'sophia@example.com',
 	},
 ];
+
 console.log(usersExercise8.map(user => user.email));
 
 // Exercise 9:
@@ -329,12 +328,16 @@ const booksExercise9 = [
 		genre: 'Fantasy',
 		price: 9.99,
 	},
-]; 
+];
+console.log(booksExercise9.map(book => `${book.title} - ${book.author}`));
+
 
 
 
 // Exercise 10:
 // Given an array of prices, add a currency symbol to each price using .map().
 const pricesExercise10 = [1999, 899, 1499, 299, 399, 999, 499, 649, 99, 129];
+
+console.log(pricesExercise10.map(price => `$${price}`));
 
 
