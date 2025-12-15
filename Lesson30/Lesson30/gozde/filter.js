@@ -412,4 +412,4 @@ const usersExercise10 = [
 	},
 ];
 
-console.log(usersExercise10.filter(user => user.name.startsWith('J')));
+console.log('Exercise 10:', usersExercise10.filter(user => user.name.startsWith("J")));
