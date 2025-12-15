@@ -1,27 +1,29 @@
 
+/*
+=====================================================
+  DATE UTILITY FUNCTIONS - LESSON 22
+=====================================================
+*/
+
+/**
+ * Calculate the minimum available booking date
+ * Adds a 3-day buffer to prevent same-day bookings
+ * Automatically handles month and year boundaries
+ * 
+ * @returns {string} Date in YYYY-MM-DD format for HTML date input
+ */
 function getMinAvailableDate() {
-  // Test string 'October 30, 2025 03:24:00'
   const currentDate = new Date();
-  const buffer = 3;
-  const currentDateNumber = currentDate.getDate();
-  const currentMonthNumber = currentDate.getMonth() + 1;
-
-  let monthToUse = currentMonthNumber;
-  let dateToUse = currentDateNumber;
-  // TODO: update this check to accomodate months with 31 and 28 days.
-  switch (currentDateNumber) {
-    case 29:
-      dateToUse = 1;
-      monthToUse = monthToUse + 1;
-      break;
-    case 30:
-      dateToUse = 2;
-      monthToUse = monthToUse + 1;
-    case 31:
-      dateToUse = 3;
-      monthToUse = monthToUse + 1;
-      break;
-  }
-
-  return `${currentDate.getFullYear()}-${monthToUse}-${dateToUse}`;
+  const buffer = 3; // 3 day buffer for appointment bookings
+  
+  // Add buffer days to current date (automatically handles month/year boundaries)
+  const minDate = new Date(currentDate);
+  minDate.setDate(currentDate.getDate() + buffer);
+  
+  // Format date as YYYY-MM-DD for HTML date input compatibility
+  const year = minDate.getFullYear();
+  const month = String(minDate.getMonth() + 1).padStart(2, '0'); // getMonth() returns 0-11
+  const day = String(minDate.getDate()).padStart(2, '0');
+  
+  return `${year}-${month}-${day}`;
 }
