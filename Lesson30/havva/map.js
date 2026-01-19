@@ -174,7 +174,7 @@ const studentsExercise5 = [
 
 function getNameAndGrade(studentObject) {
 	return studentObject.name + ' ' + studentObject.grade;
-};
+}
 
 console.log(studentsExercise5.map(student => getNameAndGrade(student)))
 
