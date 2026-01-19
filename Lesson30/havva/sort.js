@@ -36,7 +36,7 @@ const people = [
   { name: "Ellen", age: 22 }
 ];
 
-console.log(people.map(person => person.age).sort((a, b) => a - b));
+  console.log(people.sort((a, b) => a.age - b.age));
 
 // Exercise 5: Complex Sorting
 // Sort an array of strings by their length.
