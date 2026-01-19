@@ -73,7 +73,7 @@ console.log(elementCounts); // Output: { a: 3, b: 2, c: 1 }
 const numbersEx4 = [10, 20, 30, 40, 50];
 
 const totalSum = numbersEx4.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;;
+  return accumulator + currentValue;
 }, 0);
 
 const average = totalSum / numbersEx4.length;
