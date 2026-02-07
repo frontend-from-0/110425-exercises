@@ -71,6 +71,18 @@ console.log(`---------------------------------`);
      to sum all integers from `start` to `end` (inclusive).
    - Log the final sum.
 */
+function sumRange(start, end) {
+  let sum = 0;
+  let i = start;
+  while (i <= end) {
+    sum = sum + i;
+    i = i + 1;
+  }
+  console.log(`The sum from ${start} to ${end} is: ${sum}`);
+}
+
+sumRange(1, 5);
+sumRange(3, 7);
 
 /*
 5. Reverse an Array
@@ -95,6 +107,19 @@ reverseArray(['john', '45,', true, false, NaN]);
      an array of numbers and creates a new array without any negative values.
    - Log the new array.
 */
+function filterNegative(numbers) {
+  const positiveNumbers = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] >= 0) {
+      positiveNumbers.push(numbers[i]);
+    }
+  }
+  console.log('Array without negative numbers:', positiveNumbers);
+
+}
+filterNegative([1, -3, 5, -9, 10]);
+filterNegative([-1, -2, -5, -9, -10]);
+
 
 /*
 7. Double the Values (For-of Loop)
@@ -102,12 +127,29 @@ reverseArray(['john', '45,', true, false, NaN]);
      to multiply each number by 2, storing results in a new array.
    - Log the new array.
 */
+function doubleValues(numbers) {
+  const doubled = [];
+  for (let num of numbers) {
+    doubled.push(num * 2);
+  }
+  console.log('Doubled values:', doubled);
+}
+doubleValues([1, 2, 3, 4, 5]);
+doubleValues([-1, -2, -3, -4, -5]);
+doubleValues([0, 0, 0, 0, 0]);
 
 /*
 8. Print Each Character of a String (For-of)
    - Define a function `printCharacters(str)` that uses a for-of loop
      to log each character in the string on a separate line.
 */
+function printCharacters(str) {
+  for (let char of str) {
+    console.log(char);
+  }
+}
+printCharacters('Hello');
+printCharacters('Gozde');
 
 /*
 9. Sum All Values in an Object
@@ -117,11 +159,12 @@ reverseArray(['john', '45,', true, false, NaN]);
    - Example: {a: 10, b: 20, c: 5} -> 35
 */
 
+
 function sumObjectValues(obj) {
   let sum = 0;
   for (const k in obj) {
     if (typeof obj[k] === 'number') {
-    sum = sum + obj[k];
+      sum = sum + obj[k];
     } else {
       console.log('Current value is not a number, skipping it', obj[k]);
     }
@@ -148,6 +191,14 @@ sumObjectValues(exampleObejct);
       to log each key of the object.
     - Example: { name: "Alice", age: 25 } -> logs "name", then "age"
 */
+function printObjectKeys(obj) {
+  for (let key in obj) {
+    console.log(key);
+  }
+}
+
+printObjectKeys({ name: 'Alice', age: 25 });
+printObjectKeys({ a: 1, b: 2, c: 3, d: 4 });
 
 /*
 11. Sum Array Using do-while Loop
@@ -155,6 +206,18 @@ sumObjectValues(exampleObejct);
       to sum all numbers in the array.
     - Log the total.
 */
+function sumWithDoWhile(numbers) {
+  let sum = 0;
+  let i = 0;
+  do {
+    sum += numbers[i];
+    i++;
+  }
+  while (i < numbers.length);
+  console.log('Sum using do-while loop is:', sum);
+}
+sumWithDoWhile([1, 2, 3, 4, 5]);
+sumWithDoWhile([10, 20, 30]);
 
 /*
 12. Remove Duplicates from an Array
@@ -163,6 +226,18 @@ sumObjectValues(exampleObejct);
     - Hint: you could check if the item is already in the new array before pushing.
     - Log the new array without duplicates.
 */
+function removeDuplicates(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+  console.log('Array without duplicates:', result);
+}
+
+removeDuplicates([1, 2, 2, 3, 4, 4, 5]);
+removeDuplicates(['apple', 'banana', 'apple', 'orange', 'banana']);
 
 /*
 13. Calculate Factorial (For Loop)
@@ -171,6 +246,17 @@ sumObjectValues(exampleObejct);
     - Log the result. 
     - Example: factorial(5) -> 120
 */
+function factorial(n) {
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result = result * i;
+  }
+  console.log(`Factorial of ${n} is: ${result}`);
+}
+
+factorial(5);
+factorial(0);
+factorial(3);
 
 /*
 14. String -> Array -> String
@@ -179,6 +265,16 @@ sumObjectValues(exampleObejct);
       a string. Use loops or built-in methods as you like.
     - Log the reversed sentence.
 */
+function reverseWords(sentence) {
+  const words = sentence.split(' ');
+  const reversed = words.reverse();
+  const reversedSentence = reversed.join(' ');
+  console.log('Reversed sentence:', reversedSentence);
+}
+
+reverseWords('Hello world this is JavaScript');
+reverseWords('Gozde loves coding');
+
 
 /*
 15. Filter Words Longer Than X
@@ -186,12 +282,33 @@ sumObjectValues(exampleObejct);
       to collect only the words that have a length >= minLength.
     - Log the resulting array.
 */
+function filterLongWords(words, minLength) {
+  const result = [];
+  for (let word of words) {
+    if (word.length >= minLength) {
+      result.push(word);
+    }
+  }
+  console.log(`Words longer than or equal to ${minLength}:`, result);
+}
+
+filterLongWords(['apple', 'banana', 'kiwi', 'cherry', 'blueberry'], 5);
+filterLongWords(['a', 'ab', 'abc', 'abcd'], 3);
+
 
 /*
 16. Log Array Elements with Their Indices
     - Define a function `logElementsWithIndex(arr)` that loops through the array
       and logs "Index: i, Value: arr[i]" for each element.
 */
+function logElementsWithIndex(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(`Index: ${i}, Value: ${arr[i]}`);
+  }
+}
+
+logElementsWithIndex(['a', 'b', 'c']);
+logElementsWithIndex([10, 20, 30, 40]);
 
 /*
 17. Find the Smallest Number in an Array
@@ -199,6 +316,17 @@ sumObjectValues(exampleObejct);
       to find and return the smallest number.
     - Log the smallest number.
 */
+function findMin(numbers) {
+  let minNumber = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] < minNumber) minNumber = numbers[i];
+  }
+  console.log('Minimum number is:', minNumber);
+}
+
+findMin([3, 1, 4, 1, 5, 9]);
+findMin([-10, -20, -5, 0, 5]);
+
 
 /*
 18. Count Occurrences of a Word in an Array
@@ -206,6 +334,18 @@ sumObjectValues(exampleObejct);
       to count how many times `word` appears.
     - Log the count.
 */
+function countOccurrences(arr, word) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === word) {
+      count++;
+    }
+  }
+  console.log(`The word "${word}" occurs ${count} times.`);
+}
+
+countOccurrences(["a", "b", "a", "c", "a"], 'a');
+countOccurrences(['cat', 'dog', 'cat', 'mouse'], 'cat');
 
 /*
 19. Remove Falsy Values
@@ -213,6 +353,18 @@ sumObjectValues(exampleObejct);
       and returns a new array without falsy values (false, 0, "", null, undefined, NaN).
     - Log the new array.
 */
+function removeFalsyValues(arr) {
+  const truthyValues = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      truthyValues.push(arr[i]);
+    }
+  }
+  console.log('Array without falsy values:', truthyValues);
+}
+
+removeFalsyValues([0, 1, false, 2, '', 3, null, undefined, NaN, 'hello']);
+removeFalsyValues([true, 'world', 42, '', 0]);
 
 /*
 20. Sum of All Digits in a String
@@ -221,6 +373,19 @@ sumObjectValues(exampleObejct);
     - Log the final sum.
     - Example: "abc123" -> 6
 */
+function sumDigits(str) {
+  let sum = 0;
+  for (let char of str) {
+    if (char >= '0' && char <= '9') {
+      sum += Number(char);
+    }
+  }
+  console.log(`Sum of digits in "${str}" is: ${sum}`);
+}
+
+sumDigits('abc123');
+sumDigits('no digits here');
+sumDigits('4 score and 7 years ago');
 
 /*
 21. Average of Array Elements
@@ -228,6 +393,16 @@ sumObjectValues(exampleObejct);
       to calculate the average (sum / length).
     - Log the average.
 */
+function averageArray(number) {
+  let sum = 0;
+  for (let i = 0; i < number.length; i++) {
+    sum += number[i];
+  }
+  const average = sum / number.length;
+  console.log(`Average is: ${average}`);
+}
+averageArray([1, 2, 3, 4, 5]);
+averageArray([10, 20, 30]);
 
 /*
 22. Flatten a 2D Array (Nested Loops)
@@ -235,6 +410,18 @@ sumObjectValues(exampleObejct);
       (e.g., [[1,2],[3,4]]) and uses nested loops to create a new one-dimensional array.
     - Log the flattened array.
 */
+function flattenArray(twoDArray) {
+  const flattened = [];
+  for (let i = 0; i < twoDArray.length; i++) {
+    for (let j = 0; j < twoDArray[i].length; j++) {
+      flattened.push(twoDArray[i][j]);
+    }
+  }
+  console.log('Flattened array:', flattened);
+}
+
+flattenArray([[1, 2], [3, 4], [5]]);
+flattenArray([['a', 'b'], ['c', 'd']]);
 
 /*
 23. Find Words Containing a Letter
@@ -243,6 +430,18 @@ sumObjectValues(exampleObejct);
       the given letter.
     - Log the filtered array.
 */
+function findWordsWithLetter(words, letter) {
+  const result = [];
+  for (let word of words) {
+    if (word.includes(letter)) {
+      result.push(word);
+    }
+  }
+  console.log(`Words containing "${letter}":`, result);
+}
+
+findWordsWithLetter(['apple', 'banana', 'cherry', 'date'], 'a');
+findWordsWithLetter(['dog', 'cat', 'elena', 'elephant'], 'e');
 
 /*
 24. Push and Pop Operations
@@ -253,6 +452,20 @@ sumObjectValues(exampleObejct);
       - logs the popped element
       - logs the final array
 */
+function pushPopExample(arr, itemToPush) {
+  let itemtoPush = itemToPush;
+  console.log('Original array:', arr);
+  arr.push(itemtoPush);
+  console.log('After push:', arr);
+  const poppedItem = arr.pop();
+  console.log('Popped item:', poppedItem);
+  console.log('Final array:', arr);
+  return arr;
+}
+pushPopExample([1, 2, 3], 4);
+pushPopExample(['a', 'b', 'c'], 'd');
+
+
 
 /*
 25. Push and Shift Operations
@@ -263,6 +476,18 @@ sumObjectValues(exampleObejct);
       - logs the removed person
       - logs the final queue
 */
+function manageQueue(queue, newPerson) {
+  console.log('Original queue:', queue);
+  queue.push(newPerson);
+  console.log('After push:', queue);
+  const removedPerson = queue.shift();
+  console.log('Removed person:', removedPerson);
+  console.log('Final queue:', queue);
+  return queue;
+}
+manageQueue(['Alice', 'Bob', 'Charlie'], 'David');
+manageQueue(['John', 'Jane'], 'Doe');
+
 
 /*
 26. To-Do List Application 
@@ -272,5 +497,14 @@ sumObjectValues(exampleObejct);
    - Inserts any new tasks at the end of the array.
    - Logs the updated list.
 */
+function updateTodoList(todoList, startIndex, deleteCount, ...newTasks) {
+  console.log('Current to-do list:', todoList);
+  todoList.splice(startIndex, deleteCount);
+  todoList.push(...newTasks);
+  console.log('Updated to-do list:', todoList);
+  return todoList;
+}
 
-const todoList = ['Study JS', 'Eat breakfast', 'Walk dog'];
+updateTodoList(['Task1', 'Task2', 'Task3'], 1, 1, 'Task4', 'Task5');
+updateTodoList(['Buy groceries', 'Clean house', 'Go for running'], 0, 2, 'Walk dog');
+
